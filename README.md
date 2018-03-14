@@ -35,3 +35,17 @@ cmake -DCMAKE_BUILD_TYPE=Release ../..
 make
 ./blockchain
 ```
+
+### How to build and run with Docker
+What is Docker please read here: https://docs.docker.com/.  
+
+If you don't have required compilers or tools, you can build and run this project with Docker. Before start, please delete `build` folder if you've already create it.
+```bash
+cd blockchain
+docker build -t blockchain .
+```
+Docker downloads Linux Bionic image with GCC-7/g++-7 and CMake that are already installed. Then Docker builds the project into `/home/app/build/Debug` and `home/app/build/Release` (inside the image) respectively and containerizes into the image with name `blockchain`. Now you can run the program.
+```bash
+docker run blockchain /home/app/build/Debug/blockchain
+docker run blockchain /home/app/build/Release/blockchain
+```
