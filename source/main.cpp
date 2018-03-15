@@ -21,8 +21,10 @@ int main( void ) try {
     return 0;
 
 } catch ( const exception& cEx ) {
+    cerr << cEx.what() << endl;
     return 1;
 
 } catch ( ... ) {
+    cerr << "FATAL ERROR !!!" << endl;
     return 2;
 }
