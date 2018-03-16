@@ -7,14 +7,15 @@ I find that the next article may be helpful: http://davenash.com/2017/10/build-a
 As part of the code I use SHA-256 hash function from this repo: https://github.com/sam0delk1n/sha-256.
 
 ## How to build and run
-### Linux
-Clone the repo.
+### Clone the repo
 ```bash
 git clone https://github.com/sam0delk1n/blockchain.git
+cd blockchain
 ```
+
+### Linux
 Create `build/Debug/` and `build/Release/` in the repo root folder.
 ```bash
-cd blockchain
 mkdir build
 cd build
 mkdir Debug Release
@@ -42,7 +43,6 @@ What is Docker please read here: https://docs.docker.com/.
 
 If you don't have required compilers or tools, you can build and run this project with Docker. Before start, please delete `build` folder if you've already create it.
 ```bash
-cd blockchain
 docker build -t blockchain .
 ```
 Docker downloads Linux Bionic image with GCC-7/g++-7 and CMake that are already installed. Then Docker builds the project into `/home/app/build/Debug/` and `home/app/build/Release/` (inside the image) respectively and containerizes into the image with name `blockchain`. Now you can run the program.
@@ -52,13 +52,8 @@ docker run blockchain /home/app/build/Release/blockchain
 ```
 
 ### Windows and MS Visual Studio 2017
-Clone the repo.
-```bat
-git clone https://github.com/sam0delk1n/blockchain.git
-```
 Create `build\msvs\` in the repo root folder.
 ```bat
-cd blockchain
 mkdir build\msvs
 ```
 Generate `Project.sln`. You need CMake 3.10.2 and MSVS 2017.
@@ -70,13 +65,8 @@ Now you can open `Project.sln` in MSVS and build Debug, Relese, etc.
 The project named `blockchain` set as StartUp Project to run in Studio.
 
 ### Windows and MinGW-W64
-Clone the repo.
-```bat
-git clone https://github.com/sam0delk1n/blockchain.git
-```
 Create `build\mingw\Debug\` and `build\mingw\Release\` in the repo root folder.
 ```bat
-cd blockchain
 mkdir build\mingw\Debug build\mingw\Release
 ```
 Generate `Makefile` with Debug options and build it. You need CMake 3.10.2 and MinGW-W64 with GCC-7/g++-7.
